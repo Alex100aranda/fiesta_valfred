@@ -1,0 +1,515 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: blue;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Video Background */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Centered Content */
+.content {
+    position: absolute;
+    top: 60%;  /* Aumenté el valor para mover el texto más abajo */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: blue;
+    z-index: 1;
+}
+
+.image-container {
+    width: 350px;  /* Ajusté el tamaño del contenedor */
+    height: 350px;  /* Ajusté la altura para que sea proporcional */
+    margin: 0 auto;
+    border-radius: 50%;  /* Mantiene el círculo */
+    overflow: hidden;
+    margin-bottom: 0px;  /* Eliminé el margen inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Asegura que la imagen esté centrada dentro del contenedor */
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que la imagen cubra todo el círculo */
+    border-radius: 50%;  /* Mantiene el círculo */
+    display: block;  /* Elimina cualquier espacio adicional debajo de la imagen */
+}
+
+.title {
+    font-size: 5rem;  /* Aumenté el tamaño de la fuente */
+    font-weight: bold;
+    color: #FFD700; /* Gold color */
+    margin-bottom: 10px;
+}
+
+.subtitle, .age, .years {
+    font-size: 5rem;  /* Aumenté el tamaño de la fuente para que coincidan con el título */
+    color: #FFD700;  /* Mismo color dorado que el nombre */
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .subtitle, .age, .years {
+        font-size: 3rem;
+    }
+
+    .image-container {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle, .age, .years {
+        font-size: 2.5rem;
+    }
+
+    .image-container {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Sección de celebración */
+.celebration {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #1e3a8a;  /* Color azul tipo tralalelo tralala */
+    background-image: url('img/img1.jpeg'); /* Imagen de fondo */
+    background-size: 150%;  /* Reducción de la imagen al 150% para evitar que se pixelee */
+    background-position: center;  /* Asegura que la imagen esté centrada */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor de los textos */
+.celebration .content {
+    z-index: 1;
+    position: absolute;
+    top: 10%;  /* Ajuste para que el texto se acerque más a la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.celebration h2 {
+    font-size: 6rem;  /* Aumento significativo del tamaño de la fuente */
+    font-weight: bold;
+    margin-bottom: 100px;  /* Separación entre el título y el párrafo */
+    color: #FFD700; /* Color amarillo */
+}
+
+.celebration p {
+    font-size: 3rem;  /* Aumento significativo del tamaño de la fuente */
+    margin-bottom: 40px;  /* Separación entre el texto y el contador */
+    color: #FFD700; /* Mismo color amarillo que el h2 */
+}
+
+/* Estilos del contador */
+#countdown {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFD700;  /* Dorado */
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los recuadros */
+}
+
+#countdown div {
+    background-color: rgba(255, 215, 0, 0.8); /* Color dorado para los recuadros */
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #1e3a8a; /* Color azul para los números */
+    font-size: 1.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .celebration h2 {
+        font-size: 4rem; /* Ajuste del tamaño en pantallas medianas */
+    }
+
+    .celebration p {
+        font-size: 2.5rem; /* Ajuste del tamaño en pantallas medianas */
+    }
+
+    /* Ajustes en el contador */
+    #countdown {
+        font-size: 2rem;
+        gap: 10px; /* Espacio entre los recuadros */
+    }
+
+    #countdown div {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .celebration h2 {
+        font-size: 3rem; /* Ajuste aún más pequeño para pantallas pequeñas */
+    }
+
+    .celebration p {
+        font-size: 2rem; /* Ajuste aún más pequeño para pantallas pequeñas */
+    }
+
+    /* Ajustes en el contador */
+    #countdown {
+        font-size: 1.5rem;
+        gap: 5px; /* Menor espacio entre recuadros */
+    }
+
+    #countdown div {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+}
+
+/* Estilos para el botón flotante de Play */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado en pantallas grandes */
+    background-color: #FFD700; /* Color amarillo */
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #1e3a8a; /* Color azul */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.play-button:hover {
+    background-color: #f4c300; /* Un tono más oscuro de amarillo al pasar el ratón */
+}
+
+/* Responsividad: Pegado al lado derecho en pantallas pequeñas */
+@media (max-width: 768px) {
+    .play-button {
+        left: auto;
+        right: 20px;  /* Pegado al lado derecho */
+        transform: translateY(-50%);  /* Centrado verticalmente */
+    }
+}
+
+
+/* Sección de "Estamos por comenzar la diversión" */
+.coming-soon {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('img/img2.jpeg'); /* Imagen de fondo */
+    background-size: 80%;  /* Reducimos el tamaño de la imagen al 80% */
+    background-position: center;  /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-color: rgba(62, 189, 182, 0.7); /* Color azul con opacidad (se puede ajustar) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+
+/* Contenedor del texto */
+.coming-soon .content {
+    z-index: 1;
+    position: absolute;
+    top: 10%;  /* Ajuste para que el texto se acerque más a la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coming-soon h2 {
+    font-size: 5rem;  /* Tamaño grande para el texto */
+    color: #FFD700; /* Color amarillo */
+    margin-bottom: 400px;
+}
+
+.coming-soon p {
+    font-size: 10rem;  /* Aumentamos el tamaño de la fuente */
+    font-weight: bold; /* Hacemos el texto en negrita */
+    color: #050503; /* Color oscuro */
+    background-color: #FFD700; /* Fondo dorado para resaltar */
+    padding: 10px; /* Un poco de padding para separar el texto del fondo */
+    margin-bottom: 40px;  /* Separación entre el texto y el contador */
+    border-radius: 5px; /* Bordes redondeados para un acabado más suave */
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coming-soon h2 {
+        font-size: 3rem;  /* Ajuste para pantallas medianas */
+    }
+
+    .coming-soon p {
+        font-size: 2rem;  /* Ajuste para pantallas medianas */
+    }
+
+    /* Reduce la imagen un poco más */
+    .coming-soon {
+        background-size: 90%;  /* Ajuste del tamaño de la imagen para pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .coming-soon h2 {
+        font-size: 2.5rem;  /* Ajuste para pantallas pequeñas */
+    }
+
+    .coming-soon p {
+        font-size: 1.5rem;  /* Ajuste para pantallas pequeñas */
+    }
+
+    /* Reduce la imagen aún más en pantallas pequeñas */
+    .coming-soon {
+        background-size: 100%;  /* Ajuste al 100% para pantallas pequeñas */
+    }
+}
+
+/* Sección con ubicación */
+.location {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('img/img3.jpeg'); /* Imagen de fondo */
+    background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor del texto */
+.location .content {
+    z-index: 1;
+    position: absolute;
+    top: 15%; /* Ajuste para mover el texto más hacia abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 50px;  /* Separación entre el texto y el botón */
+}
+
+.location h2 {
+    font-size: 5rem;  /* Tamaño grande para el texto */
+    color: #FFD700; /* Color amarillo */
+    margin-bottom: 30px;
+}
+
+.location p {
+    font-size: 3.5rem;  /* Tamaño grande para el texto */
+    font-weight: bold;  /* Hacemos el texto en negrita */
+    color: #070602; /* Color oscuro */
+    background-color: #FFD700; /* Fondo dorado para resaltar */
+    padding: 10px; /* Un poco de padding para separar el texto del fondo */
+    margin-bottom: 60px;  /* Separación entre el texto y el botón */
+    border-radius: 5px; /* Bordes redondeados para un acabado más suave */
+}
+
+
+/* Estilos del botón */
+.location-button {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    background-color: #FFD700; /* Color amarillo */
+    color: #1e3a8a; /* Color azul */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.location-button:hover {
+    background-color: #f4c300; /* Un tono más oscuro de amarillo al pasar el ratón */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .location h2 {
+        font-size: 3.5rem;  /* Ajuste para pantallas medianas */
+    }
+
+    .location p {
+        font-size: 2.5rem;  /* Ajuste para pantallas medianas */
+    }
+
+    .location-button {
+        font-size: 1.2rem;  /* Ajuste del tamaño del botón */
+    }
+}
+
+@media (max-width: 480px) {
+    .location h2 {
+        font-size: 3rem;  /* Ajuste para pantallas pequeñas */
+    }
+
+    .location p {
+        font-size: 2rem;  /* Ajuste para pantallas pequeñas */
+    }
+
+    .location-button {
+        font-size: 1rem;  /* Ajuste del tamaño del botón */
+    }
+}
+
+/* Sección con ubicación */
+.confirmation {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('img/img4.jpeg'); /* Imagen de fondo */
+    background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(57, 175, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+.confirmation .content {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para el formulario */
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Títulos */
+.confirmation h2 {
+    font-size: 3rem;  /* Tamaño grande para el texto */
+    color: #FFD700; /* Color amarillo */
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: #FFD700; /* Color amarillo */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #f4f4f4;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Estilo del botón de enviar */
+button {
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    background-color: #FFD700; /* Color amarillo */
+    color: #1e3a8a; /* Color azul */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f4c300; /* Un tono más oscuro de amarillo al pasar el ratón */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .confirmation h2 {
+        font-size: 2.5rem;  /* Ajuste para pantallas medianas */
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1rem;  /* Ajuste del tamaño del texto en el formulario */
+    }
+
+    button {
+        font-size: 1.2rem;  /* Ajuste del tamaño del botón */
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmation h2 {
+        font-size: 2rem;  /* Ajuste para pantallas pequeñas */
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9rem;  /* Ajuste del tamaño del texto en el formulario */
+    }
+
+    button {
+        font-size: 1rem;  /* Ajuste del tamaño del botón */
+    }
+}
