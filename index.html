@@ -1,145 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Cumpleaños VALFRED</title>
-
-    <!-- AOS CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Cumpleaños</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-
 <body>
-
-   <!-- Primera Sección: Video de fondo con imagen central -->
-<section class="hero">
-   <video id="backgroundVideo" class="video-background" loop>
-        <source src="video.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
-    <div class="content">
-        <div class="image-container">
-            <img src="img/valfred.png" alt="VALFRED" class="profile-img">
-        </div>
-        <h1 class="title">VALFRED</h1>
-        <p class="subtitle">CUMPLE</p>
-        <p class="age">5</p>
-        <p class="years">AÑOS</p>
+  
+  <!-- Banner inicial -->
+  <section class="banner">
+    <div class="overlay">
+      <h1>VALFRED</h1>
+      <h2>CUMPLE <span>5</span> AÑOS</h2>
     </div>
+  </section>   
 
-    <!-- Botón flotante de Play -->
-    <button id="playButton" class="play-button">&#9654;</button>
-</section>
-
-
-    <!-- Sección de celebración -->
-    <section class="celebration" data-aos="fade-up" data-aos-duration="1500">
-        <div class="content">
-            <h2>Ven a Celebrar el día</h2>
-            <p>Sábado 18 de Octubre de 2025</p>
-            <div id="countdown"></div>
+  <!-- Cuenta regresiva -->
+  <section class="countdown-section">
+    <div class="overlay">
+      <h2>Ven a Celebrar el día</h2>
+      <p class="date">Sábado 18 de Octubre de 2025</p>
+      <div class="countdown">
+        <div class="time-box" id="days">
+          <span class="time-number">00</span>
+          <p>Días</p>
         </div>
-    </section>
-
-    <!-- Nueva Sección -->
-    <section class="coming-soon" data-aos="fade-up" data-aos-duration="1500">
-        <div class="content">
-            <h2>Estamos por comenzar la diversión</h2>
-            <p>La fiesta será en:</p>
+        <div class="time-box" id="hours">
+          <span class="time-number">00</span>
+          <p>Horas</p>
         </div>
-    </section>
-
-    <!-- Sección con ubicación -->
-    <section class="location" data-aos="fade-up" data-aos-duration="1500">
-        <div class="content">
-            <h2>Recepción 4pm</h2>
-            <p>Camino a San Marcos #37, Azcapotzalco</p>
-            <a href="https://maps.app.goo.gl/DcPZNmrnNWhvfGft7" target="_blank">
-                <button class="location-button">Ver en Google Maps</button>
-            </a>
+        <div class="time-box" id="minutes">
+          <span class="time-number">00</span>
+          <p>Minutos</p>
         </div>
-    </section>
-
-    <!-- Sección con formulario de confirmación -->
-    <section class="confirmation" data-aos="fade-up" data-aos-duration="1500">
-        <div class="content">
-            <h2>Confirmación de Asistencia</h2>
-            <form id="confirmationForm" action="https://wa.me/525540112849" method="get" target="_blank">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="attendance">¿Asistirás?</label>
-                    <select id="attendance" name="attendance" required>
-                        <option value="Sí">Sí</option>
-                        <option value="No">No</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="comments">Comentarios:</label>
-                    <textarea id="comments" name="comments" rows="4" placeholder="Opcional"></textarea>
-                </div>
-                <button type="submit">Enviar Confirmación</button>
-            </form>
+        <div class="time-box" id="seconds">
+          <span class="time-number">00</span>
+          <p>Segundos</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección final "Te espero, no faltes" -->
-    <section class="final" data-aos="fade-up" data-aos-duration="1500">
-        <div class="content">
-            <h1>VALFRED</h1>
-            <img src="img/valfred.jpeg" alt="Te espero" class="center-image">
-            <h2>TE ESPERO NO FALTES</h2>
-        </div>
-    </section>
+  <!-- Sección de fiesta -->
+  <section class="fun-start">
+    <div class="overlay">
+      <h2>Estamos por comenzar la diversión</h2>
+      <p>La fiesta será en:</p>
+    </div>
+  </section>
 
-    <!-- AOS JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        // Inicializa AOS
-        AOS.init();
+  <!-- Dirección de la fiesta -->
+  <section class="location-section">
+    <div class="overlay">
+      <h2>Recepción 4pm</h2>
+      <p>Colonia San Marcos, Calle Camino San Marcos #37</p>
+      <a href="https://www.google.com/maps/place/Colonia+San+Marcos,+Calle+Camino+San+Marcos+%2337" target="_blank" class="map-button">Ver Mapa</a>
+    </div>
+  </section>
 
-        // Configuración de la fecha del evento
-        const eventDate = new Date("October 18, 2025 00:00:00").getTime();
+  <!-- Formulario de confirmación -->
+  <section class="confirmation-section">
+    <div class="overlay">
+      <h2>Confirma tu asistencia</h2>
+      <p>Por favor, rellena los siguientes datos</p>
+      
+      <form id="confirmationForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+        
+        <label for="attendance">¿Asistirás?</label>
+        <select id="attendance" name="attendance" required>
+          <option value="">Selecciona</option>
+          <option value="sí">Sí</option>
+          <option value="no">No</option>
+        </select>
+        
+        <label for="comments">Comentarios:</label>
+        <textarea id="comments" name="comments" placeholder="Gracias por tus comentarios"></textarea>
+        
+      </form>
+      
+      <!-- Se elimina el href="#" aquí -->
+      <a id="whatsappButton" class="whatsapp-button" target="_blank">Confirmar en WhatsApp</a>
+    </div>
+  </section>
 
-        // Actualización del contador cada segundo
-        const countdown = setInterval(function () {
-            const now = new Date().getTime(); // Tiempo actual
-            const distance = eventDate - now; // Diferencia de tiempo
+  <!-- Agradecimiento -->
+  <section class="thank-you-section">
+    <div class="overlay">
+      <h2>VALFRED</h2>
+      <p>Te espero, no faltes</p>
+      <div class="image-container">
+        <img src="img/valfred.png" alt="Agradecimiento" />
+      </div>
+    </div>
+  </section>
 
-            // Cálculos de días, horas, minutos y segundos
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  <!-- Scripts -->
+  <script>
+    // Cuenta regresiva
+    const countdownDate = new Date("October 18, 2025 00:00:00").getTime();
 
-            // Muestra el contador
-            document.getElementById("countdown").innerHTML =
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    // Actualización de la cuenta regresiva cada segundo
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
 
-            // Si el evento ya ha pasado
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById("countdown").innerHTML = "¡La fiesta ha comenzado!";
-            }
-        }, 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Reproducir el video al hacer clic en el botón de Play
-        document.getElementById("playButton").addEventListener("click", function() {
-            const video = document.getElementById("backgroundVideo");
-            if (video.paused) {
-                video.play(); // Reproduce el video
-                this.style.display = "none"; // Oculta el botón de Play después de hacer clic
-            }
-        });
-    </script>
+      document.getElementById("days").children[0].textContent = days;
+      document.getElementById("hours").children[0].textContent = hours;
+      document.getElementById("minutes").children[0].textContent = minutes;
+      document.getElementById("seconds").children[0].textContent = seconds;
 
+      if (distance < 0) {
+        clearInterval(x);
+        document.querySelector(".countdown-section").innerHTML = "<h2>¡Es el gran día!</h2>";
+      }
+    }, 1000);
+
+    // Redireccionar al WhatsApp con los datos del formulario
+    document.getElementById("confirmationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Obtener los valores del formulario
+      const name = document.getElementById("name").value;
+      const attendance = document.getElementById("attendance").value;
+      const comments = document.getElementById("comments").value;
+
+      // Crear el mensaje que se enviará por WhatsApp
+      const message = `¡Hola! Mi nombre es ${name}. Confirmo mi asistencia: ${attendance}. Comentarios: ${comments}. ¡Gracias!`;
+
+      // Crear el enlace para WhatsApp con el número y mensaje
+      const whatsappURL = `https://wa.me/525540112849?text=${encodeURIComponent(message)}`;
+
+      // Establecer el enlace en el botón de WhatsApp
+      const whatsappButton = document.getElementById("whatsappButton");
+      whatsappButton.href = whatsappURL;
+
+      // Redirigir al usuario a WhatsApp en una nueva pestaña
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+  
 </body>
-
-
 </html>
