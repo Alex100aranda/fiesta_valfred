@@ -485,3 +485,45 @@ body {
     max-width: 90%; /* Asegura que la imagen sea más pequeña en pantallas pequeñas */
   }
 }
+
+/* Estilo para el botón flotante de música */
+.music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffeb3b; /* Color de fondo amarillo */
+  color: #000; /* Color del texto */
+  padding: 20px; /* Tamaño del botón */
+  font-size: 2rem; /* Tamaño del ícono */
+  border-radius: 50%; /* Haciendo el botón totalmente redondo */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex; /* Usamos flexbox para centrar el ícono */
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+  width: 80px; /* Mantener el botón redondo */
+  height: 80px; /* Mantener el botón redondo */
+}
+
+.music-button:hover {
+  background-color: #fbc02d; /* Color más oscuro cuando pasa el ratón */
+  transform: scale(1.1); /* Efecto de aumento cuando se pasa el ratón */
+}
+
+.music-button i {
+  color: #000; /* Color del ícono */
+  font-size: 1.5rem; /* Tamaño del ícono */
+  transition: transform 0.3s ease; /* Suavizar el cambio de tamaño del ícono */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .music-button {
+    font-size: 1.5rem; /* Ajustamos el tamaño del botón en pantallas más pequeñas */
+    padding: 15px;
+    width: 70px; /* Mantener el botón pequeño y redondo en dispositivos móviles */
+    height: 70px;
+  }
+}

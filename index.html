@@ -6,6 +6,9 @@
   <title>Invitación Cumpleaños</title>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome (para los íconos) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
   
@@ -82,7 +85,6 @@
         
       </form>
       
-      <!-- Se elimina el href="#" aquí -->
       <a id="whatsappButton" class="whatsapp-button" target="_blank">Confirmar en WhatsApp</a>
     </div>
   </section>
@@ -98,55 +100,86 @@
     </div>
   </section>
 
-  <!-- Scripts -->
-  <script>
-    // Cuenta regresiva
-    const countdownDate = new Date("October 18, 2025 00:00:00").getTime();
 
-    // Actualización de la cuenta regresiva cada segundo
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
+<!-- Botón flotante para música -->
+<button class="music-button" onclick="toggleMusic()">
+  <i id="musicIcon" class="fas fa-play"></i> <!-- Ícono de play inicialmente -->
+</button>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<!-- Reproductor de música (MP3) -->
+<audio id="audioPlayer" src="audio.mp3"></audio>
 
-      document.getElementById("days").children[0].textContent = days;
-      document.getElementById("hours").children[0].textContent = hours;
-      document.getElementById("minutes").children[0].textContent = minutes;
-      document.getElementById("seconds").children[0].textContent = seconds;
 
-      if (distance < 0) {
-        clearInterval(x);
-        document.querySelector(".countdown-section").innerHTML = "<h2>¡Es el gran día!</h2>";
-      }
-    }, 1000);
 
-    // Redireccionar al WhatsApp con los datos del formulario
-    document.getElementById("confirmationForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+<!-- Scripts -->
+<script>
+  // Función para controlar la reproducción de la música
+  function toggleMusic() {
+    var audioPlayer = document.getElementById("audioPlayer");
+    var musicIcon = document.getElementById("musicIcon");
 
-      // Obtener los valores del formulario
-      const name = document.getElementById("name").value;
-      const attendance = document.getElementById("attendance").value;
-      const comments = document.getElementById("comments").value;
+    // Si la música está en pausa, reproducirla y cambiar el ícono a pausa (II)
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      musicIcon.classList.remove("fa-play"); // Remover el ícono de play
+      musicIcon.classList.add("fa-pause");  // Añadir el ícono de pausa (II)
+    } 
+    // Si la música se está reproduciendo, pausarla y cambiar el ícono a play
+    else {
+      audioPlayer.pause();
+      musicIcon.classList.remove("fa-pause"); // Remover el ícono de pausa
+      musicIcon.classList.add("fa-play");    // Volver a añadir el ícono de play
+    }
+  }
 
-      // Crear el mensaje que se enviará por WhatsApp
-      const message = `¡Hola! Mi nombre es ${name}. Confirmo mi asistencia: ${attendance}. Comentarios: ${comments}. ¡Gracias!`;
+  // Cuenta regresiva
+  const countdownDate = new Date("October 18, 2025 00:00:00").getTime();
 
-      // Crear el enlace para WhatsApp con el número y mensaje
-      const whatsappURL = `https://wa.me/525540112849?text=${encodeURIComponent(message)}`;
+  // Actualización de la cuenta regresiva cada segundo
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-      // Establecer el enlace en el botón de WhatsApp
-      const whatsappButton = document.getElementById("whatsappButton");
-      whatsappButton.href = whatsappURL;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Redirigir al usuario a WhatsApp en una nueva pestaña
-      window.open(whatsappURL, "_blank");
-    });
-  </script>
-  
+    document.getElementById("days").children[0].textContent = days;
+    document.getElementById("hours").children[0].textContent = hours;
+    document.getElementById("minutes").children[0].textContent = minutes;
+    document.getElementById("seconds").children[0].textContent = seconds;
+
+    // Si la cuenta regresiva ha terminado
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-section").innerHTML = "<h2>¡Es el gran día!</h2>";
+    }
+  }, 1000);
+
+  // Redireccionar al WhatsApp con los datos del formulario
+  document.getElementById("confirmationForm").addEventListener("submit", function(e) {
+    e.preventDefault();  // Evitar el comportamiento predeterminado del formulario
+
+    // Obtener los valores del formulario
+    const name = document.getElementById("name").value;
+    const attendance = document.getElementById("attendance").value;
+    const comments = document.getElementById("comments").value;
+
+    // Crear el mensaje que se enviará por WhatsApp
+    const message = `¡Hola! Mi nombre es ${name}. Confirmo mi asistencia: ${attendance}. Comentarios: ${comments}. ¡Gracias!`;
+
+    // Crear el enlace para WhatsApp con el número y mensaje
+    const whatsappURL = `https://wa.me/525540112849?text=${encodeURIComponent(message)}`;
+
+    // Establecer el enlace en el botón de WhatsApp
+    const whatsappButton = document.getElementById("whatsappButton");
+    whatsappButton.href = whatsappURL;
+
+    // Redirigir al usuario a WhatsApp en una nueva pestaña
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+
 </body>
 </html>
