@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* Poppins como fuente base para todo el texto */
+  font-family: 'Poppins', sans-serif;
   color: #fff;
   background: #000;
   overflow-x: hidden;
@@ -22,7 +22,7 @@ h1, h2 {
 /* Banner */
 .banner {
   position: relative;
-  min-height: 100vh; /* Ocupa toda la pantalla */
+  min-height: 80vh; /* Reducir la altura del banner */
   background: url("img/banner.jpeg") no-repeat center center/cover;
   background-size: cover;
   display: flex;
@@ -31,6 +31,7 @@ h1, h2 {
   align-items: center;
   text-align: center;
   padding: 0; /* Sin padding */
+   margin-top: 100px;
 }
 
 /* Contenedor del texto */
@@ -48,7 +49,7 @@ h1, h2 {
 .banner h1 {
   font-size: clamp(4rem, 12vw, 7rem); /* Título grande y adaptable */
   letter-spacing: 4px;
-  margin-top: 20px;
+  margin-top: -100px;
   color: #ffeb3b; /* Color dorado */
 }
 
@@ -67,10 +68,53 @@ h1, h2 {
   font-weight: bold;
 }
 
+/* Estilo para la sección con imagen centrada y fondo oscuro */
+.image-section {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+  align-items: center; /* Centra la imagen verticalmente */
+  height: 80vh; /* Reducir altura de la sección */
+  padding: 20px;
+  box-sizing: border-box; /* Para que el padding no afecte el tamaño */
+}
+
+/* Contenedor de la imagen con contorno */
+.image-container {
+  border: 5px solid #fff; /* Contorno blanco alrededor de la imagen */
+  padding: 10px; /* Espaciado entre la imagen y el contorno */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 100%; /* Se asegura que ocupe el 100% del espacio disponible */
+  max-width: 800px; /* Máximo ancho de la imagen */
+}
+
+/* Imagen dentro del contenedor */
+.image-container img {
+  width: 100%; /* Hace que la imagen ocupe todo el ancho disponible */
+  height: auto; /* Mantiene la relación de aspecto */
+  border-radius: 8px; /* Bordes redondeados en la imagen */
+}
+
+/* Media Query para pantallas más pequeñas (celulares) */
+@media (max-width: 768px) {
+  .image-container {
+    max-width: 100%; /* Hace que la imagen ocupe todo el ancho en dispositivos pequeños */
+  }
+
+  .image-section {
+    padding: 10px; /* Reduce el padding para pantallas pequeñas */
+  }
+
+  .banner {
+    min-height: 70vh; /* Reduce la altura del banner en pantallas pequeñas */
+  }
+}
+
+
 /* Nueva sección - Countdown */
 .countdown-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh; /* Reducir altura de la sección */
   background: url("img/img1.jpeg") no-repeat center center/cover;
   background-size: cover;
   display: flex;
@@ -78,7 +122,7 @@ h1, h2 {
   align-items: center;
   text-align: center;
   padding: 0; /* Sin padding */
-  margin-top: -10px; /* Hace que la segunda sección suba más */
+  margin-top: 0px; /* Hace que la segunda sección suba más */
 }
 
 /* Opacidad del fondo */
@@ -463,7 +507,7 @@ body {
 .thank-you-section h2 {
   font-family: 'Lobster', sans-serif;
   font-size: clamp(3rem, 10vw, 5rem);
-  color: #fff;
+  color: yellow;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
