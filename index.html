@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome (para los íconos) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+  <!-- Incluir AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   
@@ -63,12 +64,12 @@
     </div>
   </section>
 
-  <!-- Formulario de confirmación -->
   <section class="confirmation-section">
-    <div class="overlay">
-      <h2>Confirma tu asistencia</h2>
-      <p>Por favor, rellena los siguientes datos</p>
-      
+  <div class="overlay">
+    <h2>Confirma tu asistencia</h2>
+    <p>Por favor, rellena los siguientes datos</p>
+
+    <div class="form-container">
       <form id="confirmationForm">
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" required placeholder="Tu nombre">
@@ -82,12 +83,12 @@
         
         <label for="comments">Comentarios:</label>
         <textarea id="comments" name="comments" placeholder="Gracias por tus comentarios"></textarea>
-        
       </form>
       
       <a id="whatsappButton" class="whatsapp-button" target="_blank">Confirmar en WhatsApp</a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Agradecimiento -->
   <section class="thank-you-section">
@@ -111,7 +112,6 @@
 
 
 
-<!-- Scripts -->
 <script>
   // Función para controlar la reproducción de la música
   function toggleMusic() {
@@ -123,7 +123,7 @@
       audioPlayer.play();
       musicIcon.classList.remove("fa-play"); // Remover el ícono de play
       musicIcon.classList.add("fa-pause");  // Añadir el ícono de pausa (II)
-    } 
+    }
     // Si la música se está reproduciendo, pausarla y cambiar el ícono a play
     else {
       audioPlayer.pause();
@@ -157,29 +157,43 @@
     }
   }, 1000);
 
-  // Redireccionar al WhatsApp con los datos del formulario
-  document.getElementById("confirmationForm").addEventListener("submit", function(e) {
-    e.preventDefault();  // Evitar el comportamiento predeterminado del formulario
+  // --- Lógica del botón de WhatsApp ---
+  document.addEventListener('DOMContentLoaded', () => {
+    const whatsappButton = document.getElementById('whatsappButton');
+    
+    // Se añade un listener al formulario para prevenir el envío
+    const confirmationForm = document.getElementById('confirmationForm');
 
-    // Obtener los valores del formulario
-    const name = document.getElementById("name").value;
-    const attendance = document.getElementById("attendance").value;
-    const comments = document.getElementById("comments").value;
+    whatsappButton.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    // Crear el mensaje que se enviará por WhatsApp
-    const message = `¡Hola! Mi nombre es ${name}. Confirmo mi asistencia: ${attendance}. Comentarios: ${comments}. ¡Gracias!`;
+        // Obtener los valores del formulario
+        const name = document.getElementById('name').value;
+        const attendance = document.getElementById('attendance').value;
+        const comments = document.getElementById('comments').value;
 
-    // Crear el enlace para WhatsApp con el número y mensaje
-    const whatsappURL = `https://wa.me/525540112849?text=${encodeURIComponent(message)}`;
+        // Validar que los campos obligatorios estén llenos
+        if (!name || attendance === '') {
+            alert('Por favor, rellena el nombre y la asistencia.');
+            return;
+        }
 
-    // Establecer el enlace en el botón de WhatsApp
-    const whatsappButton = document.getElementById("whatsappButton");
-    whatsappButton.href = whatsappURL;
+        // Construir el mensaje para WhatsApp
+        const phoneNumber = '525540112849'; // Número de México
+        const message = `Hola, mi nombre es ${name}. Confirmo que mi asistencia es: ${attendance}. Comentarios: ${comments || 'Ninguno'}.`;
+        const encodedMessage = encodeURIComponent(message);
 
-    // Redirigir al usuario a WhatsApp en una nueva pestaña
-    window.open(whatsappURL, "_blank");
+        // Crear el enlace de WhatsApp y redirigir
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    });
   });
+
 </script>
+  
+
+<!-- Incluir AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 </body>
 </html>

@@ -294,8 +294,8 @@ body {
 /* Sección de confirmación */
 .confirmation-section {
   position: relative;
-  min-height: 100vh; /* Ocupa toda la pantalla */
-  background: url("img/fondo-confirmacion.jpg") no-repeat center center/cover; /* Imagen de fondo */
+  min-height: 100vh;
+  background: url("img/img4.jpeg") no-repeat center center/cover;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -306,10 +306,10 @@ body {
 
 /* Fondo opaco */
 .confirmation-section .overlay {
-  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro y opaco */
-  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 90%; /* Ajuste para mejor visualización en móviles */
   max-width: 600px;
-  padding: 20px;
+  padding: 40px 20px; /* Mayor padding para un respiro */
   border-radius: 12px;
 }
 
@@ -325,10 +325,21 @@ body {
 /* Subtítulo */
 .confirmation-section p {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #fff;
   margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: 400; /* Ligeramente más delgado para un mejor contraste */
+  max-width: 80%; /* Limita el ancho del texto */
+  margin-inline: auto;
+}
+
+/* Formulario y Botón de WhatsApp - Contenedor unificado */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Espaciado unificado entre formulario y botón */
+  width: 100%;
 }
 
 /* Formulario */
@@ -336,71 +347,83 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 }
 
 #confirmationForm label {
-  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif; /* Unifica la fuente */
+  font-size: 1.1rem; /* Un poco más pequeña para un aspecto más limpio */
   color: #fff;
+  text-align: left; /* Alinea las etiquetas a la izquierda */
+  font-weight: 500;
 }
 
+/* Campos de texto, select y textarea unificados */
 #confirmationForm input,
 #confirmationForm select,
 #confirmationForm textarea {
-  padding: 10px;
+  font-family: 'Poppins', sans-serif; /* Unifica la fuente */
+  padding: 12px; /* Mayor padding para un mejor toque */
   font-size: 1rem;
   border-radius: 8px;
-  border: none;
-  margin-top: 5px;
+  border: 1px solid #ccc; /* Borde sutil para definir los campos */
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco semitransparente */
+  color: #333; /* Color de texto para mejor legibilidad */
+  transition: all 0.3s ease;
 }
 
-#confirmationForm button {
-  background-color: #ffeb3b;
-  color: #000;
-  font-size: 1.2rem;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  border: none;
-  margin-top: 20px;
+#confirmationForm input:focus,
+#confirmationForm select:focus,
+#confirmationForm textarea:focus {
+  outline: none;
+  border-color: #ffeb3b; /* Resalta el borde al enfocar */
+  box-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
 }
 
-#confirmationForm button:hover {
-  background-color: #fbc02d; /* Color más oscuro cuando pasa el ratón */
+/* Placeholder */
+::placeholder {
+  color: #999;
 }
 
-/* Botón WhatsApp */
+/* Botón de WhatsApp */
 .whatsapp-button {
   display: inline-block;
-  background-color: #25D366; /* Color de WhatsApp */
+  background-color: #25D366;
   color: #fff;
   padding: 15px 30px;
   font-size: 1.2rem;
   border-radius: 8px;
   text-decoration: none;
-  margin-top: 20px;
   text-transform: uppercase;
   font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  width: 100%; /* El botón ahora tiene el mismo ancho que el formulario */
+  max-width: 300px; /* Limita el ancho en pantallas grandes */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .whatsapp-button:hover {
-  background-color: #128C7E; /* Color más oscuro cuando pasa el ratón */
+  background-color: #128C7E;
+  transform: translateY(-2px); /* Efecto sutil de elevación */
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
+  .confirmation-section .overlay {
+    width: 90%;
+    padding: 30px 15px;
+  }
+  
   .confirmation-section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .confirmation-section p {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
-
+  
   #confirmationForm label {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   #confirmationForm input,
@@ -409,17 +432,12 @@ body {
     font-size: 0.9rem;
   }
 
-  #confirmationForm button {
-    font-size: 1rem;
-  }
-
   .whatsapp-button {
     font-size: 1rem;
     padding: 12px 25px;
+    width: 100%;
   }
 }
-
-
 /* Última sección - Agradecimiento */
 .thank-you-section {
   position: relative;
